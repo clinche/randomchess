@@ -1,5 +1,8 @@
 # ChessMix
 
+![image](https://github.com/user-attachments/assets/87ffb157-a853-452c-bc58-1bdbfd07a665)
+
+
 A Next.js-based chess application with Stockfish integration.
 
 ## GitHub Pages Deployment
