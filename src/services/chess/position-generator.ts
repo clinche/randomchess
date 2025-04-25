@@ -55,13 +55,15 @@ const getRandomSquare = (allowedRanks: number[]): Square => {
 
 /**
  * Helper: Place a specific number of pieces of a given type/color 
+ * Returns true if placement is successful and position is legal, false otherwise
  */
 function placePieces(
   chess: Chess,
   pieceOrList: { type: string, color: string } | { type: string, color: string }[],
   count: number,
-  allowedRanks: number[]
-) {
+  allowedRanks: number[],
+  options?: PositionGeneratorOptions
+): boolean {
   const piecesToPlace = Array.isArray(pieceOrList) ? pieceOrList : Array(count).fill(pieceOrList);
 
   for (const piece of piecesToPlace) {
@@ -77,8 +79,33 @@ function placePieces(
     }
     if (!placed) {
       console.warn(`Could not place piece ${piece.color}${piece.type} on ranks ${allowedRanks.join(',')}`);
+      return false;
     }
   }
+  
+  // Early legality checks after pieces are placed (if options are provided)
+  if (options) {
+    // Kings in check check
+    if (options.fairnessChecks.kingsNotInCheck && 
+       (isKingInCheck(chess, 'w') || isKingInCheck(chess, 'b'))) {
+      return false; // King starts in check - invalid
+    }
+    
+    // Bishops on same colored squares check
+    if (options.fairnessChecks.bishopsOnDifferentColors && hasBishopsOnSameColoredSquares(chess)) {
+      return false; // Invalid position: bishops of the same color on same colored squares
+    }
+    
+    // Stalemate check - ensure both sides have legal moves
+    if (options.fairnessChecks.noStalemate) {
+      const legalMoves = calculateLegalMovesCount(chess);
+      if (legalMoves.white === 0 || legalMoves.black === 0) {
+        return false; // Skip positions where either side has no legal moves (stalemate)
+      }
+    }
+  }
+  
+  return true; // All pieces placed successfully and position is legal
 }
 
 /** Helper: Check if kings are adjacent */
@@ -218,8 +245,14 @@ export async function generateRandomPosition(
       chess.put({ type: 'k', color: 'b' }, blackKingSquare);
 
       // 2. Place Pawns (8 each, respecting ranks)
-      placePieces(chess, { type: 'p', color: 'w' }, 8, [1, 2, 3]); // White pawns on ranks 2-4
-      placePieces(chess, { type: 'p', color: 'b' }, 8, [4, 5, 6]); // Black pawns on ranks 5-7
+      // No checks on pawns yet as kings might be in check until all pieces are placed
+      if (!placePieces(chess, { type: 'p', color: 'w' }, 8, [1, 2, 3])) {
+        continue; // Couldn't place all pawns, try a new position
+      }
+      
+      if (!placePieces(chess, { type: 'p', color: 'b' }, 8, [4, 5, 6])) {
+        continue; // Couldn't place all pawns, try a new position
+      }
 
       // 3. Place Major/Minor Pieces (respecting sides)
       const whitePieces = [
@@ -230,30 +263,38 @@ export async function generateRandomPosition(
         { type: 'q', color: 'b' }, { type: 'r', color: 'b' }, { type: 'r', color: 'b' },
         { type: 'b', color: 'b' }, { type: 'b', color: 'b' }, { type: 'n', color: 'b' }, { type: 'n', color: 'b' },
       ];
-      placePieces(chess, whitePieces, whitePieces.length, [0, 1, 2, 3]); // White pieces ranks 1-4
-      placePieces(chess, blackPieces, blackPieces.length, [4, 5, 6, 7]); // Black pieces ranks 5-8
+      
+      // Now apply legality checks after placing all remaining pieces
+      if (!placePieces(chess, whitePieces, whitePieces.length, [0, 1, 2, 3], mergedOptions)) {
+        continue; // Position failed legality checks, try a new one
+      }
+      
+      if (!placePieces(chess, blackPieces, blackPieces.length, [4, 5, 6, 7], mergedOptions)) {
+        continue; // Position failed legality checks, try a new one
+      }
 
+      // These checks are now done inside placePieces
       // 4. Basic Legality Checks (before Stockfish)
       // Only apply checks that the user has enabled
       
-      // Kings in check check
-      if (mergedOptions.fairnessChecks.kingsNotInCheck && 
-         (isKingInCheck(chess, 'w') || isKingInCheck(chess, 'b'))) {
-        continue; // King starts in check - invalid
-      }
+      // // Kings in check check (already checked in placePieces)
+      // if (mergedOptions.fairnessChecks.kingsNotInCheck && 
+      //    (isKingInCheck(chess, 'w') || isKingInCheck(chess, 'b'))) {
+      //   continue; // King starts in check - invalid
+      // }
       
-      // Bishops on same colored squares check
-      if (mergedOptions.fairnessChecks.bishopsOnDifferentColors && hasBishopsOnSameColoredSquares(chess)) {
-        continue; // Invalid position: bishops of the same color on same colored squares
-      }
+      // // Bishops on same colored squares check (already checked in placePieces)
+      // if (mergedOptions.fairnessChecks.bishopsOnDifferentColors && hasBishopsOnSameColoredSquares(chess)) {
+      //   continue; // Invalid position: bishops of the same color on same colored squares
+      // }
       
-      // Stalemate check - ensure both sides have legal moves
-      if (mergedOptions.fairnessChecks.noStalemate) {
-        const legalMoves = calculateLegalMovesCount(chess);
-        if (legalMoves.white === 0 || legalMoves.black === 0) {
-          continue; // Skip positions where either side has no legal moves (stalemate)
-        }
-      }
+      // // Stalemate check - ensure both sides have legal moves (already checked in placePieces)
+      // if (mergedOptions.fairnessChecks.noStalemate) {
+      //   const legalMoves = calculateLegalMovesCount(chess);
+      //   if (legalMoves.white === 0 || legalMoves.black === 0) {
+      //     continue; // Skip positions where either side has no legal moves (stalemate)
+      //   }
+      // }
 
       // 5. Generate FEN and check if it's valid for chess.js
       // Set turn to a placeholder for now, we'll determine the actual turn later after evaluation
@@ -284,7 +325,7 @@ export async function generateRandomPosition(
 
       if (analysis.forcedMate === null && analysis.isFair) {
         // Determine who should move first - the disadvantaged side gets the first move
-        const whiteToMove = analysis.evaluation < 0; // If evaluation is negative, white is disadvantaged
+        const whiteToMove = analysis.evaluation <= 0; // If evaluation is negative or zero, white begins
         
         // Update the FEN with the correct turn
         fen = fen.replace(/ w | b /, whiteToMove ? " w " : " b ");
