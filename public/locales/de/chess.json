@@ -1,0 +1,70 @@
+{
+  "pieces": {
+    "pawn": "Bauer",
+    "knight": "Springer",
+    "bishop": "Läufer",
+    "rook": "Turm",
+    "queen": "Dame",
+    "king": "König"
+  },
+  "moves": {
+    "check": "Schach",
+    "checkmate": "Schachmatt",
+    "stalemate": "Patt",
+    "castle": "Rochade",
+    "promotion": "Bauernumwandlung",
+    "enPassant": "En Passant"
+  },
+  "gameModes": {
+    "random": "Zufällige Position",
+    "vsBot": "Gegen Computer",
+    "local": "Lokales Spiel"
+  },
+  "gameModeDescriptions": {
+    "random": "Zufällig generierte, faire Schachpositionen. Bereit zum Spielen!",
+    "vsBot": "Spielen gegen die KI als {{side}}.",
+    "local": "Spiele lokal eine Partie Schach."
+  },
+  "players": {
+    "white": "Weiß",
+    "black": "Schwarz"
+  },
+  "generation": {
+    "generating": "Generiere...",
+    "generateNew": "Neue Position generieren"
+  },
+  "actions": {
+    "newGame": "Neues Spiel",
+    "playWithAI": "Diese Position gegen KI spielen"
+  },
+  "settings": {
+    "playAs": "Spielen als",
+    "difficulty": "Schwierigkeitsgrad"
+  },
+  "difficulty": {
+    "easy": {
+      "title": "Einfach",
+      "description": "Anfängerfreundliche KI (1200 ELO)",
+      "elo": "1200",
+      "uci": "Skill Level 5, Begrenzte Stärke"
+    },
+    "medium": {
+      "title": "Mittel",
+      "description": "Fortgeschrittener Vereinsspieler (1500 ELO)",
+      "elo": "1500",
+      "uci": "Skill Level 10, Begrenzte Stärke"
+    },
+    "hard": {
+      "title": "Schwer",
+      "description": "Starker Vereinsspieler (1800 ELO)",
+      "elo": "1800",
+      "uci": "Skill Level 15, Begrenzte Stärke"
+    },
+    "max": {
+      "title": "Maximal",
+      "description": "Maximale Engine-Stärke",
+      "elo": "3000+",
+      "uci": "Skill Level 20, Unbegrenzte Stärke"
+    }
+  }
+}

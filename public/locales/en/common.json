@@ -1,0 +1,11 @@
+{
+  "appName": "ChessMix",
+  "loading": "Loading...",
+  "actions": {
+    "reset": "Reset Board",
+    "undo": "Undo"
+  },
+  "languageSwitcher": {
+    "label": "Switch language"
+  }
+}

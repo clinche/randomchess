@@ -1,0 +1,70 @@
+{
+  "pieces": {
+    "pawn": "Peón",
+    "knight": "Caballo",
+    "bishop": "Alfil",
+    "rook": "Torre",
+    "queen": "Dama",
+    "king": "Rey"
+  },
+  "moves": {
+    "check": "Jaque",
+    "checkmate": "Jaque Mate",
+    "stalemate": "Ahogado",
+    "castle": "Enroque",
+    "promotion": "Promoción",
+    "enPassant": "Al Paso"
+  },
+  "gameModes": {
+    "random": "Posición Aleatoria",
+    "vsBot": "Jugar contra IA",
+    "local": "Juego Local"
+  },
+  "gameModeDescriptions": {
+    "random": "Posiciones de ajedrez aleatorias y equilibradas. ¡Listo para jugar!",
+    "vsBot": "Jugando contra la IA como {{side}}.",
+    "local": "Juega una partida de ajedrez localmente."
+  },
+  "players": {
+    "white": "Blancas",
+    "black": "Negras"
+  },
+  "generation": {
+    "generating": "Generando...",
+    "generateNew": "Generar Nueva Posición"
+  },
+  "actions": {
+    "newGame": "Nuevo Juego",
+    "playWithAI": "Usar este tablero para jugar contra IA"
+  },
+  "settings": {
+    "playAs": "Jugar como",
+    "difficulty": "Dificultad"
+  },
+  "difficulty": {
+    "easy": {
+      "title": "Fácil",
+      "description": "IA amigable para principiantes (1200 ELO)",
+      "elo": "1200",
+      "uci": "Skill Level 5, Fuerza Limitada"
+    },
+    "medium": {
+      "title": "Medio",
+      "description": "Jugador de club intermedio (1500 ELO)",
+      "elo": "1500",
+      "uci": "Skill Level 10, Fuerza Limitada"
+    },
+    "hard": {
+      "title": "Difícil",
+      "description": "Jugador de club fuerte (1800 ELO)",
+      "elo": "1800",
+      "uci": "Skill Level 15, Fuerza Limitada"
+    },
+    "max": {
+      "title": "Máximo",
+      "description": "Fuerza máxima del motor",
+      "elo": "3000+",
+      "uci": "Skill Level 20, Fuerza Ilimitada"
+    }
+  }
+}

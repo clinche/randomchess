@@ -1,0 +1,70 @@
+{
+  "pieces": {
+    "pawn": "Pedone",
+    "knight": "Cavallo",
+    "bishop": "Alfiere",
+    "rook": "Torre",
+    "queen": "Regina",
+    "king": "Re"
+  },
+  "moves": {
+    "check": "Scacco",
+    "checkmate": "Scacco Matto",
+    "stalemate": "Stallo",
+    "castle": "Arrocco",
+    "promotion": "Promozione",
+    "enPassant": "En Passant"
+  },
+  "gameModes": {
+    "random": "Posizione Casuale",
+    "vsBot": "Gioca Contro IA",
+    "local": "Gioco Locale"
+  },
+  "gameModeDescriptions": {
+    "random": "Posizioni di scacchi generate casualmente ed equilibrate. Pronto per giocare!",
+    "vsBot": "Giocando contro l'IA come {{side}}.",
+    "local": "Gioca una partita di scacchi in locale."
+  },
+  "players": {
+    "white": "Bianco",
+    "black": "Nero"
+  },
+  "generation": {
+    "generating": "Generazione in corso...",
+    "generateNew": "Genera Nuova Posizione"
+  },
+  "actions": {
+    "newGame": "Nuova Partita",
+    "playWithAI": "Utilizza questa posizione per giocare contro l'IA"
+  },
+  "settings": {
+    "playAs": "Gioca come",
+    "difficulty": "Difficoltà"
+  },
+  "difficulty": {
+    "easy": {
+      "title": "Facile",
+      "description": "IA adatta ai principianti (1200 ELO)",
+      "elo": "1200",
+      "uci": "Skill Level 5, Forza Limitata"
+    },
+    "medium": {
+      "title": "Medio",
+      "description": "Giocatore di club intermedio (1500 ELO)",
+      "elo": "1500",
+      "uci": "Skill Level 10, Forza Limitata"
+    },
+    "hard": {
+      "title": "Difficile",
+      "description": "Giocatore di club forte (1800 ELO)",
+      "elo": "1800",
+      "uci": "Skill Level 15, Forza Limitata"
+    },
+    "max": {
+      "title": "Massimo",
+      "description": "Forza massima del motore",
+      "elo": "3000+",
+      "uci": "Skill Level 20, Forza Illimitata"
+    }
+  }
+}

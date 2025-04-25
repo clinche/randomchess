@@ -1,0 +1,11 @@
+{
+  "appName": "ChessMix",
+  "loading": "Cargando...",
+  "actions": {
+    "reset": "Reiniciar Tablero",
+    "undo": "Deshacer"
+  },
+  "languageSwitcher": {
+    "label": "Cambiar idioma"
+  }
+}

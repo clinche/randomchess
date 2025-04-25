@@ -1,0 +1,11 @@
+{
+  "appName": "ChessMix",
+  "loading": "Chargement...",
+  "actions": {
+    "reset": "Réinitialiser l'échiquier",
+    "undo": "Annuler"
+  },
+  "languageSwitcher": {
+    "label": "Changer de langue"
+  }
+}

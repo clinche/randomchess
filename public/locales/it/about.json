@@ -1,0 +1,19 @@
+{
+  "title": "Informazioni su ChessMix",
+  "fairness": {
+    "title": "Equità",
+    "description": "Le posizioni mirano a una valutazione entro ±0,5 pedoni (±50 centipedoni) senza matti forzati."
+  },
+  "legality": {
+    "title": "Legalità",
+    "description": "Le posizioni generate rispettano le regole standard degli scacchi (ad esempio, nessun re sotto scacco inizialmente)."
+  },
+  "placement": {
+    "title": "Posizionamento",
+    "description": "Ogni lato inizia con 8 pedoni. I pezzi sono posizionati casualmente ma inizialmente limitati alla propria metà/centro della scacchiera."
+  },
+  "analysis": {
+    "title": "Analisi",
+    "description": "Il motore Stockfish fornisce valutazioni e controlla l'equità. Le probabilità di vittoria sono stimate in base alla valutazione."
+  }
+}

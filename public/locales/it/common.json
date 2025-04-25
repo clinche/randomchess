@@ -1,0 +1,11 @@
+{
+  "appName": "ChessMix",
+  "loading": "Caricamento...",
+  "actions": {
+    "reset": "Reimposta Scacchiera",
+    "undo": "Annulla"
+  },
+  "languageSwitcher": {
+    "label": "Cambia lingua"
+  }
+}

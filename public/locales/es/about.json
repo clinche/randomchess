@@ -1,0 +1,19 @@
+{
+  "title": "Acerca de ChessMix",
+  "fairness": {
+    "title": "Equidad",
+    "description": "Las posiciones apuntan a una evaluación dentro de ±0.5 peones (±50 centipeones) sin mates forzados."
+  },
+  "legality": {
+    "title": "Legalidad",
+    "description": "Las posiciones generadas cumplen con las reglas estándar de ajedrez (por ejemplo, sin reyes en jaque inicialmente)."
+  },
+  "placement": {
+    "title": "Colocación",
+    "description": "Cada lado comienza con 8 peones. Las piezas se colocan aleatoriamente pero inicialmente restringidas a su propia mitad/medio del tablero."
+  },
+  "analysis": {
+    "title": "Análisis",
+    "description": "El motor Stockfish proporciona evaluación y comprueba la equidad. Las probabilidades de victoria se estiman en base a la evaluación."
+  }
+}

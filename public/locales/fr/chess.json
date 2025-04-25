@@ -1,0 +1,70 @@
+{
+  "pieces": {
+    "pawn": "Pion",
+    "knight": "Cavalier",
+    "bishop": "Fou",
+    "rook": "Tour",
+    "queen": "Dame",
+    "king": "Roi"
+  },
+  "moves": {
+    "check": "Échec",
+    "checkmate": "Échec et Mat",
+    "stalemate": "Pat",
+    "castle": "Roque",
+    "promotion": "Promotion",
+    "enPassant": "En Passant"
+  },
+  "gameModes": {
+    "random": "Position Aléatoire",
+    "vsBot": "Jouer contre l'IA",
+    "local": "Jeu Local"
+  },
+  "gameModeDescriptions": {
+    "random": "Positions d'échecs générées aléatoirement et équilibrées. Prêt à jouer !",
+    "vsBot": "Jouer contre l'IA en tant que {{side}}.",
+    "local": "Jouer une partie d'échecs en local."
+  },
+  "players": {
+    "white": "Blancs",
+    "black": "Noirs"
+  },
+  "generation": {
+    "generating": "Génération en cours...",
+    "generateNew": "Générer Nouvelle Position"
+  },
+  "actions": {
+    "newGame": "Nouvelle Partie",
+    "playWithAI": "Utiliser cette position pour jouer contre l'IA"
+  },
+  "settings": {
+    "playAs": "Jouer en tant que",
+    "difficulty": "Difficulté"
+  },
+  "difficulty": {
+    "easy": {
+      "title": "Facile",
+      "description": "IA adaptée aux débutants (1200 ELO)",
+      "elo": "1200",
+      "uci": "Skill Level 5, Force Limitée"
+    },
+    "medium": {
+      "title": "Moyen",
+      "description": "Joueur de club intermédiaire (1500 ELO)",
+      "elo": "1500",
+      "uci": "Skill Level 10, Force Limitée"
+    },
+    "hard": {
+      "title": "Difficile",
+      "description": "Joueur de club fort (1800 ELO)",
+      "elo": "1800",
+      "uci": "Skill Level 15, Force Limitée"
+    },
+    "max": {
+      "title": "Maximum",
+      "description": "Force maximale du moteur",
+      "elo": "3000+",
+      "uci": "Skill Level 20, Force Illimitée"
+    }
+  }
+}

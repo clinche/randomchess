@@ -1,0 +1,11 @@
+{
+  "appName": "ChessMix",
+  "loading": "Lädt...",
+  "actions": {
+    "reset": "Brett zurücksetzen",
+    "undo": "Rückgängig"
+  },
+  "languageSwitcher": {
+    "label": "Sprache wechseln"
+  }
+}

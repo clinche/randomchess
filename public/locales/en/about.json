@@ -1,0 +1,19 @@
+{
+  "title": "About ChessMix",
+  "fairness": {
+    "title": "Fairness",
+    "description": "Positions aim for an evaluation within ±0.5 pawns (±50 centipawns) with no forced mates."
+  },
+  "legality": {
+    "title": "Legality",
+    "description": "Generated positions adhere to standard chess rules (e.g., no kings in check initially)."
+  },
+  "placement": {
+    "title": "Placement",
+    "description": "Each side starts with 8 pawns. Pieces are placed randomly but restricted to their own half/middle of the board initially."
+  },
+  "analysis": {
+    "title": "Analysis",
+    "description": "Stockfish engine provides evaluation and checks for fairness. Win chances are estimated based on evaluation."
+  }
+}

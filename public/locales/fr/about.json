@@ -1,0 +1,19 @@
+{
+  "title": "À propos de ChessMix",
+  "fairness": {
+    "title": "Équité",
+    "description": "Les positions visent une évaluation dans la plage de ±0,5 pions (±50 centipions) sans mats forcés."
+  },
+  "legality": {
+    "title": "Légalité",
+    "description": "Les positions générées respectent les règles standard des échecs (par exemple, pas de rois en échec au départ)."
+  },
+  "placement": {
+    "title": "Placement",
+    "description": "Chaque camp commence avec 8 pions. Les pièces sont placées aléatoirement mais initialement limitées à leur propre moitié/milieu de l'échiquier."
+  },
+  "analysis": {
+    "title": "Analyse",
+    "description": "Le moteur Stockfish fournit une évaluation et vérifie l'équité. Les chances de gain sont estimées en fonction de l'évaluation."
+  }
+}

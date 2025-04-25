@@ -1,0 +1,19 @@
+{
+  "title": "Über ChessMix",
+  "fairness": {
+    "title": "Fairness",
+    "description": "Die Positionen zielen auf eine Bewertung innerhalb von ±0,5 Bauern (±50 Centipawns) ohne erzwungene Matts."
+  },
+  "legality": {
+    "title": "Legalität",
+    "description": "Generierte Positionen entsprechen den Standardschachregeln (z.B. keine Könige im Schach zu Beginn)."
+  },
+  "placement": {
+    "title": "Aufstellung",
+    "description": "Jede Seite beginnt mit 8 Bauern. Figuren werden zufällig platziert, sind aber anfangs auf ihre eigene Hälfte/Mitte des Bretts beschränkt."
+  },
+  "analysis": {
+    "title": "Analyse",
+    "description": "Die Stockfish-Engine liefert Bewertungen und überprüft die Fairness. Gewinnchancen werden basierend auf der Bewertung geschätzt."
+  }
+}

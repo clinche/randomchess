@@ -1,0 +1,71 @@
+{
+  "pieces": {
+    "pawn": "Pawn",
+    "knight": "Knight",
+    "bishop": "Bishop",
+    "rook": "Rook",
+    "queen": "Queen",
+    "king": "King"
+  },
+  "moves": {
+    "check": "Check",
+    "checkmate": "Checkmate",
+    "stalemate": "Stalemate",
+    "castle": "Castle",
+    "promotion": "Promotion",
+    "enPassant": "En Passant"
+  },
+  "gameModes": {
+    "random": "Random Position",
+    "vsBot": "Play vs Bot",
+    "local": "Local Game"
+  },
+  "gameModeDescriptions": {
+    "random": "Randomly generated, fair chess positions. Ready to play!",
+    "vsBot": "Playing against the AI as {{side}}.",
+    "local": "Play a game of chess locally."
+  },
+  "players": {
+    "white": "White",
+    "black": "Black"
+  },
+  "generation": {
+    "generating": "Generating...",
+    "generateNew": "Generate New Position"
+  },
+  "actions": {
+    "newGame": "New Game",
+    "playWithAI": "Use this board to play vs an AI"
+  },
+  "settings": {
+    "playAs": "Play as",
+    "difficulty": "Difficulty"
+  },
+  "difficulty": {
+
+    "easy": {
+      "title": "Easy",
+      "description": "Beginner friendly AI (1200 ELO)",
+      "elo": "1200",
+      "uci": "Skill Level 5, Limited Strength"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "Intermediate club player (1500 ELO)",
+      "elo": "1500",
+      "uci": "Skill Level 10, Limited Strength"
+    },
+    "hard": {
+      "title": "Hard",
+      "description": "Strong club player (1800 ELO)",
+      "elo": "1800",
+      "uci": "Skill Level 15, Limited Strength"
+    },
+    "max": {
+      "title": "Max",
+      "description": "Maximum engine strength",
+      "elo": "3000+",
+      "uci": "Skill Level 20, Unlimited Strength"
+    }
+  }
+}
