@@ -4,7 +4,7 @@ A Next.js-based chess application with Stockfish integration.
 
 ## GitHub Pages Deployment
 
-This app is deployed on GitHub Pages and uses a service worker to add the required security headers for SharedArrayBuffer support. This allows the Stockfish chess engine to work with full functionality even on GitHub Pages.
+This app is deployed on [GitHub Pages here](https://clinche.github.io/randomchess) and uses a service worker to add the required security headers for SharedArrayBuffer support. This allows the Stockfish chess engine to work with full functionality even on GitHub Pages.
 
 ### How It Works
 
