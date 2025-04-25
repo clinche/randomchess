@@ -1,7 +1,7 @@
 import { safeChessMutate } from '@/services/chess/chess-utils';
 import { PositionGeneratorOptions } from '@/services/chess/position-generator';
 import { Move } from 'chess.js';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useChessPosition } from './use-chess-position';
 import { AiDifficulty, useStockfish } from './use-stockfish';
 
@@ -197,14 +197,23 @@ export function useChessGame({
     }
   }, [startNewGame, initialized]);
   
-  // Effect to handle game mode changes
-  useEffect(() => {
-    // Don't run on initial render, only when gameMode actually changes
-    if (initialized) {
-      console.log("Game mode changed to:", gameMode);
-      setModeChanged(true);
-    }
-  }, [gameMode, initialized]);
+  // Ref to skip the first run of gameMode effect
+  const isFirstGameModeRun = useRef(true);
+  const prevGameMode = useRef<GameMode | null>(null);
+
+// Effect to handle game mode changes only if the value actually changes
+useEffect(() => {
+  if (isFirstGameModeRun.current) {
+    isFirstGameModeRun.current = false;
+    prevGameMode.current = gameMode;
+    return;
+  }
+  if (initialized && prevGameMode.current !== gameMode) {
+    console.log("Game mode changed to:", gameMode);
+    setModeChanged(true);
+  }
+  prevGameMode.current = gameMode;
+}, [gameMode, initialized]);
 
   // Effect to respond to game mode changes
   useEffect(() => {
